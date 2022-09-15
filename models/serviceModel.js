@@ -5,10 +5,15 @@ import { StringReq, DateCreated, NewDate, Fee } from "../types/models.js";
 const serviceSchema=new mongoose.Schema({
     RoleName:StringReq,
     ServiceCode:StringReq,
+    ServiceCategory:{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:"ServiceCategory"
+    },
     Details:String,
     DateCreated: DateCreated,
     LastUpdate: NewDate,
     SuspensionFee:Fee,
+    SubscriptionFee:Fee,
     Provider:{
         type:mongoose.SchemaTypes.ObjectId,
         ref:"Provider"
@@ -17,7 +22,7 @@ const serviceSchema=new mongoose.Schema({
         type:mongoose.SchemaTypes.ObjectId,
         ref:"Staff"
     },
-    ProviderSubscriptionFee:Fee
+    ProviderFee:Fee
 })
 
 export default mongoose.model("Service", serviceSchema)
