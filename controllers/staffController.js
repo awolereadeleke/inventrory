@@ -4,9 +4,15 @@ let staffController={
     fill:(req, res)=>{
         res.send("This is the staff list news")
     },
-    post:(req, res)=>{
-        console.log(req.body);
-        res.send("POST Data");
+    post:async (req, res)=>{
+        try{
+            const staff=new staffModel({...req.body})
+            //staff.save();
+            res.send(staff);
+            //res.send("POST Data");    
+        }catch(e){
+            console.log(e.message);
+        }
     }
 }
 

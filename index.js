@@ -1,10 +1,13 @@
+import * as dotenv from 'dotenv'
+dotenv.config();
 import express from 'express';
 import bodyParser from 'body-parser'
 import cors from "cors"
 import staffRouters from './routes/staffs.js'
+import departmentRouters from './routes/departments.js';
 import mongoose from 'mongoose';
 
-mongoose.connect("mongodb://localhost:27017/InvoicingSystem", ()=>{
+mongoose.connect(process.env.DATABASE_CONNEECTION, ()=>{
     console.log("Database Connected")
 })
 
@@ -12,11 +15,12 @@ mongoose.connect("mongodb://localhost:27017/InvoicingSystem", ()=>{
 
 const app=express();
 
-const PORT =5000;
+const PORT =process.env.PORT;
 
 app.use(bodyParser.json());
 
 app.use("/staffs", staffRouters)
+app.use("/departments", departmentRouters)
 
 app.get("/", (req, res)=>{
     console.log("Client Connected");
