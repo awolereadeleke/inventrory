@@ -23,7 +23,6 @@ let departmentController={
             const dept=new departmentModel({...req.body})
             dept.save();
             res.send(dept);
-            //res.send("POST Data");    
         }catch(e){
             console.log(e.message);
         }
