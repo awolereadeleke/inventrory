@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 import { StringReq, DateCreated, NewDate } from "../types/models.js";
 
 
-const pcoSchema=new mongoose.Schema({
-    PCOTitle:StringReq,
+const pocSchema=new mongoose.Schema({
+    POCTitle:StringReq,
     Details:String,
     CreatedBy:{
         type:mongoose.SchemaTypes.ObjectId,
@@ -20,4 +20,4 @@ const pcoSchema=new mongoose.Schema({
     LastUpdate: NewDate,
 })
 
-export default mongoose.model("PCO", pcoSchema)
+export default mongoose.model("POC", pocSchema)

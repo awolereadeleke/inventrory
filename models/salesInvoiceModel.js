@@ -11,9 +11,9 @@ const salesInvoiceSchema=new mongoose.Schema({
         type:mongoose.SchemaTypes.ObjectId,
         ref:"Invoice"
     },
-    PCO:{
+    POC:{
         type:mongoose.SchemaType.ObjectId,
-        ref:"PCO"
+        ref:"POC"
     },
     DateCreated: DateCreated,
     LastUpdate: NewDate,
