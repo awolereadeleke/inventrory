@@ -3,7 +3,6 @@ import departmentModel from '../models/departmentModel.js'
 let departmentController={
     fill:async (req, res)=>{
         const depts= await departmentModel.find();
-        //const depts=await departmentModel.findById("6322130badc97a4fdd3cd44f");
         res.send(depts)
         console.log(depts);
     },
