@@ -12,7 +12,7 @@ const suspensionInvoiceSchema=new mongoose.Schema({
         ref:"Invoice"
     },
     Poc:{
-        type:mongoose.SchemaType.ObjectId,
+        type:mongoose.SchemaTypes.ObjectId,
         ref:"POC"
     },
     From:Date,

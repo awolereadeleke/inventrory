@@ -12,7 +12,7 @@ const stockMovementSchema=new mongoose.Schema({
         ref:"Store"
     },
     InitiatedBy:{
-        type:mongooose.SchemaTypes.ObjectId,
+        type:mongoose.SchemaTypes.ObjectId,
         ref:"Staff"
     },
     StockMovementStatus:{
@@ -27,4 +27,4 @@ const stockMovementSchema=new mongoose.Schema({
     LastUpdate: NewDate,
 })
 
-export default mongoose.model("Department", stockMovementSchema)
+export default mongoose.model("StockMovement", stockMovementSchema)

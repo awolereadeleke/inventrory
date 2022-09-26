@@ -31,4 +31,4 @@ const invoiceSchema=new mongoose.Schema({
     LastUpdate: NewDate,
 })
 
-export default mongoose.model("Invoice", InvoiceSchema)
+export default mongoose.model("Invoice", invoiceSchema)

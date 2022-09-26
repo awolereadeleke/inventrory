@@ -10,4 +10,4 @@ const equipmentCategoreSchema=new mongoose.Schema({
     LastUpdate: NewDate,
 })
 
-export default mongoose.model("EquipmentCategory", equipmentCategorySchema)
+export default mongoose.model("EquipmentCategory", equipmentCategoreSchema)

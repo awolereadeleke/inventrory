@@ -1,17 +1,22 @@
-import Model from '../models/departmentModel.js'
+import routeOptions from "../routes/Options/routeOptions.js";
 
-let departmentController={
+let Controller={
+    get:(req)=>{
+        const Model=routeOptions.find((ro)=>ro.Route.replaceAll('/','')===req.originalUrl.split('/')[1]).Model;
+        return Model;
+    },
     fill:async (req, res)=>{
+        const Model=Controller.get(req);
         const model= await Model.find();
         res.send(model)
-        console.log(model);
+        //console.log(model);
     },
     fillBy:async (req, res)=>{
         try{
+            const Model=Controller.get(req);
             const id=req.params.id
             const model=await Model.findById(id);
             res.send(model)
-            console.log(model);    
         }catch(e){
             console.log(e.message)
             res.send({Status:"Error", Message:"Invalid ID"})
@@ -19,6 +24,7 @@ let departmentController={
     },
     post:async (req, res)=>{
         try{
+            const Model=Controller.get(req);
             const model=new Model({...req.body})
             model.save();
             res.send(model);
@@ -28,12 +34,12 @@ let departmentController={
     },
     put:async (req, res)=>{
             try{
+                const Model=Controller.get(req);
                 const id=req.params.id
                 const model=await Model.findById(id);
                 Object.assign(model, req.body)
                 await model.save();
                 res.send(model);
-                console.log(model);    
             }catch(e){
                 console.log(e.message)
                 res.send({Status:"Error", Message:"Invalid ID"})
@@ -41,6 +47,7 @@ let departmentController={
     },
     delete:async (req, res)=>{
         try{
+            const Model=Controller.get(req);
             const id=req.params.id
             const model=await Model.findById(id);
             await model.remove();
@@ -54,5 +61,4 @@ let departmentController={
 
 }
 
-
-export default departmentController;
+export default Controller;

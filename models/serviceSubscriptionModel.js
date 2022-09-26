@@ -13,7 +13,7 @@ const ssSchema=new mongoose.Schema({
         ref:"SubscriptionStatus"
     },
     Client:{
-        type:mongooose.SchemaTypes.ObjectId,
+        type:mongoose.SchemaTypes.ObjectId,
         ref:"Company"
     },
     Agent:{

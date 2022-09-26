@@ -12,7 +12,7 @@ const recurrentInvoiceSchema=new mongoose.Schema({
         ref:"Invoice"
     },
     POC:{
-        type:mongoose.SchemaType.ObjectId,
+        type:mongoose.SchemaTypes.ObjectId,
         ref:"POC"
     },
     From:Date,

@@ -12,7 +12,7 @@ const orderItemSchema=new mongoose.Schema({
         ref:"Company"
     },
     PreparedBy:{
-        type:Mongoose.SchemaTypes.ObjectId,
+        type:mongoose.SchemaTypes.ObjectId,
         ref:"Staff"
     },
     SalesInvoice:{
