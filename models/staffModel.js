@@ -5,14 +5,29 @@ import { StringReq, DateCreated, NewDate, addressSchema } from "../types/models.
 const staffSchema= new mongoose.Schema({
     Firstname: StringReq,
     Lastname: StringReq,
-    Email:StringReq,
+    Email:{
+        type:String,
+        minLength:2,
+        maxLength:50,
+        validate: {
+            validator: v=>v.indexOf('@') > 2,
+            message: props => `${props.value} failed validation test for email`,
+        },
+    },
     Phone:{
         type:String,
         minLength:7,
         maxLength:20,
         validate: {
-            validator: v=>v.length % 2 ===0,
-            message: props => `${props.value} failed validation test`,
+            validator: v=>v.length > 9,
+            message: props => `${props.value} failed validation test for phone number`,
+        }
+    },
+    Password:{
+        type:String,
+        validate: {
+            validator: v=>v.length > 7,
+            message: props => `${props.value} cannot be less that 8 characher length`,
         }
     },
     About: String,

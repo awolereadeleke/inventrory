@@ -26,9 +26,10 @@ let Controller={
         try{
             const Model=Controller.get(req);
             const model=new Model({...req.body})
-            model.save();
+            await model.save();
             res.send(model);
         }catch(e){
+            res.status(403).send({Error: e.message})
             console.log(e.message);
         }
     },
@@ -42,7 +43,7 @@ let Controller={
                 res.send(model);
             }catch(e){
                 console.log(e.message)
-                res.send({Status:"Error", Message:"Invalid ID"})
+                res.status(403).send({Error: e.message})
             }    
     },
     delete:async (req, res)=>{

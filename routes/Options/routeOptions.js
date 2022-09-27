@@ -34,6 +34,7 @@ import stockReceivedModel from "../../models/stockReceivedModel.js"
 import storeModel from "../../models/storeModel.js"
 import subscriptionStatusModel from "../../models/subscriptionStatusModel.js"
 import suspensionInvoiceModel from "../../models/suspensionInvoiceModel.js"
+import privilegeModel from "../../models/privilegeModel.js"
 
 const routeOptions=[
     {Model:departmentModel, Route:"/department"},
@@ -71,7 +72,8 @@ const routeOptions=[
     {Model:stockReceivedModel, Route:"/stockReceived"},
     {Model:storeModel, Route:"/store"},
     {Model:subscriptionStatusModel, Route:"/subscriptionStatus"},
-    {Model:suspensionInvoiceModel, Route:"/suspensionInvoice"} 
+    {Model:suspensionInvoiceModel, Route:"/suspensionInvoice"}, 
+    {Model:privilegeModel, Route:"/privilege"},
 ]
 
 export default routeOptions;
